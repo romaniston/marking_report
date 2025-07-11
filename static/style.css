@@ -1,0 +1,20 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to right, #FF5733, #FFC300);
+    padding: 20px;
+    border-radius: 20px;
+    width: 600px;
+    margin: 10px auto;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+.name {
+    flex: 1;
+    text-align: left;
+}
+.value {
+    flex: 1;
+    text-align: right;
+}
