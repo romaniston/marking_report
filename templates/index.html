@@ -2,19 +2,41 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Выработка</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Отчёт по выработке</title>
 </head>
 <body>
-    <h1>Выработка</h1>
+    <h1>Отчёт по выработке по мастерам</h1>
 
-    <div class="table">
-        {% for master in masters %}
-        <div class="row">
-            <div class="name">{{ master.name }}</div>
-            <div class="value">{{ master.output }}</div>
-        </div>
-        {% endfor %}
-    </div>
+    <form method="GET" action="/">
+        <label for="start_date">Начальная дата:</label>
+        <input type="date" id="start_date" name="start_date" required>
+
+        <label for="end_date">Конечная дата:</label>
+        <input type="date" id="end_date" name="end_date" required>
+
+        <button type="submit">Применить</button>
+    </form>
+
+    {% if masters is not none %}
+        <h2>Результаты:</h2>
+
+        {% if masters %}
+        <table border="1">
+            <tr>
+                <th>Мастер</th>
+                <th>Суммарная выработка</th>
+            </tr>
+            {% for m in masters %}
+            <tr>
+                <td>{{ m.name }}</td>
+                <td>{{ m.output }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>Нет данных за выбранный период.</p>
+        {% endif %}
+    {% endif %}
+
 </body>
 </html>
