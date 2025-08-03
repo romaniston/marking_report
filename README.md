@@ -1,2 +1,2 @@
 # marking_report
-App for marking department
+Flask WEB-приложение для мониторинга выработки на участке
